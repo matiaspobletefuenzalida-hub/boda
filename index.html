@@ -115,6 +115,9 @@
 </head>
 <body class="selection:bg-[#C5A87C] selection:text-white">
 
+    <!-- AUDIO DE LA BODA -->
+    <audio id="musica-boda" src="boda.mp3" loop></audio>
+
     <!-- ========================================== -->
     <!-- PANTALLA 1: SOBRE DE LUJO MINIMALISTA      -->
     <!-- ========================================== -->
@@ -359,6 +362,12 @@
         }
 
         function openEnvelope() {
+            // Reproducir música al hacer clic
+            const audio = document.getElementById('musica-boda');
+            if (audio) {
+                audio.play().catch(error => console.log("La reproducción automática fue bloqueada:", error));
+            }
+
             const guestNameInput = document.getElementById('guest-name').value.trim();
             const cleanedInput = cleanText(guestNameInput);
             
